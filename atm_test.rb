@@ -1,3 +1,4 @@
+# This is the first commit for this project
 require 'test/unit'
 class Account < Test::Unit::TestCase
   def initialize(balance, name, account_number) 
