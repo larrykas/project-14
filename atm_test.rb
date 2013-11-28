@@ -1,5 +1,4 @@
-
-# This is the first commit for this project
+# This is the * commit for this project
 require 'test/unit'
 class Account < Test::Unit::TestCase
 
@@ -18,22 +17,22 @@ class Account < Test::Unit::TestCase
     assert_raise @balance -= amount
 
   end
-
  
- 
-   def balance
-     puts "Name: " + @name
-     puts "Account number: " + @account_number.to_s 
-     puts "Balance: " + @balance.to_s
-   end
+  def balance
+    puts "Name: " + @name
+    puts "Account number: " + @account_number.to_s 
+    puts "Balance: " + @balance.to_s
+  end
 
-   def transfer(amount, target_account)
+  def transfer(amount, target_account)
 
      assert_raise @balance -= amount
      assert_raise target_account.deposit(amount)
-   end
+  end
 
-   def status
-     return @balance
-   end
+  
+
+  def status
+    return @balance
+  end
  end
