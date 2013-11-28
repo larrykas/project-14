@@ -1,6 +1,8 @@
+
 # This is the first commit for this project
 require 'test/unit'
 class Account < Test::Unit::TestCase
+
 
   def initialize(balance, name, account_number) 
     @balance = balance
@@ -8,23 +10,16 @@ class Account < Test::Unit::TestCase
     @account_number = account_number    
   end
 
-   def deposit(amount)
+  def deposit(amount)
      assert_raise @balance += amount
-   end
+  end
 
-   def withdraw(amount)
+  def withdraw(amount)
     assert_raise @balance -= amount
 
   end
 
-   def deposit(amount)
-     @balance += amount
-   end
-
-   def withdraw(amount)
-     @balance -= amount
-
-   end
+ 
  
    def balance
      puts "Name: " + @name
@@ -33,6 +28,7 @@ class Account < Test::Unit::TestCase
    end
 
    def transfer(amount, target_account)
+
      assert_raise @balance -= amount
      assert_raise target_account.deposit(amount)
    end
