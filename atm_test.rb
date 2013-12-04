@@ -1,38 +1,36 @@
 # This is the * commit for this project
 require 'test/unit'
-class Account < Test::Unit::TestCase
-
-
-  def initialize(balance, name, account_number) 
-    @balance = balance
-    @name = name
-    @account_number = account_number    
+load 'account_atm.rb'
+  
+class AccountTest < Test::Unit::TestCase
+  
+  def setup
+      @a = Account.new(1, 'steve', 'programmer', 'male', 0)
+      
   end
 
-  def deposit(amount)
-     assert_raise @balance += amount
+  def test_deposit
+    assert_equal 0, @a.balance 
+    @a.deposit(200)
+    assert_equal(200, @a.balance)
   end
 
-  def withdraw(amount)
-    assert_raise @balance -= amount
-
-  end
- 
-  def balance
-    puts "Name: " + @name
-    puts "Account number: " + @account_number.to_s 
-    puts "Balance: " + @balance.to_s
+  def test_withdraw
+    assert_equal 0, @a.balance 
+    @a.withdraw(100)
+    assert_equal(-100, @a.balance)
   end
 
-  def transfer(amount, target_account)
-
-     assert_raise @balance -= amount
-     assert_raise target_account.deposit(amount)
+  def test_transfer
+     b = Account.new(2, 'Jim', 'Clerk', 'male', 0)
+     @a.transfer(50, b)
+     assert_equal -50, @a.balance
+     assert_equal 50, b.balance
   end
 
   
 
-  def status
+  def test_balance
     return @balance
   end
- end
+end

@@ -6,8 +6,11 @@ require "test/unit"
 class TestSimpleNumber < Test::Unit::TestCase
  
   def test_simple
-    assert_equal(4, SimpleNumber.new(2).add(2) )
-    assert_equal(4, SimpleNumber.new(2).multiply(2) )
+    simpleNumber = SimpleNumber.new
+    expected = simpleNumber.add 2,2 
+    assert_equal expected, 4 
+    expected = simpleNumber.multiply 2,3
+    assert_equal expected, 6 
   end
  
   def test_typecheck
@@ -15,7 +18,8 @@ class TestSimpleNumber < Test::Unit::TestCase
   end
  
   def test_failure
-    assert_equal(3, SimpleNumber.new(2).add(2), "Adding doesn't work" )
+    simpleNumber = SimpleNumber.new
+    assert_equal(3, SimpleNumber.add(2,2), "Adding doesn't work" )
   end
  
 end
